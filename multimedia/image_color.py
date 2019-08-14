@@ -1,11 +1,9 @@
-import sys
-import os
-sys.path.insert(1, os.path.join(sys.path[0], '..'))
-
-from libmc import mc
+from microcontest import Communicator
 from io import BytesIO
 from PIL import Image
 import base64
+
+mc = Communicator.create_from_env()
 
 challenge_id = 56
 

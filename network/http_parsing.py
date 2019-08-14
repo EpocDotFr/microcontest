@@ -1,10 +1,8 @@
-import sys
-import os
-sys.path.insert(1, os.path.join(sys.path[0], '..'))
-
-from libmc import mc
+from microcontest import Communicator
 from lxml import html
 import requests
+
+mc = Communicator.create_from_env()
 
 challenge_id = 44
 

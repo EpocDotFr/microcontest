@@ -7,7 +7,7 @@ import os
 requests = requests.Session()
 
 
-class MicroContest:
+class Communicator:
     CONTEST_VARIABLES_URL = 'http://www.microcontest.com/contests/{contest_id}/contest.php'
     CONTEST_VALIDATION_URL = 'http://www.microcontest.com/contests/{contest_id}/validation.php'
 
@@ -43,6 +43,8 @@ class MicroContest:
 
         return response.text.splitlines()[0].split(':', maxsplit=1)[1] == '1'
 
-load_dotenv()
+    @classmethod
+    def create_from_env(cls):
+        load_dotenv()
 
-mc = MicroContest(os.getenv('MC_USERNAME'), os.getenv('MC_PASSWORD'))
+        return cls(os.getenv('MC_USERNAME'), os.getenv('MC_PASSWORD'))
