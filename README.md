@@ -10,13 +10,15 @@ Python 3.
 
 Clone this repo, and then the usual `pip install -r requirements.txt`.
 
-Some solutions needs additional PyPI packages to be installed. See source code.
+Some solutions needs additional PyPI packages to be installed. See source code, at the top of the files.
 
 ## Configuration
 
 Copy the `.env.example` file to `.env` and fill in the configuration parameters which are self-explanatory.
 
 ## Usage
+
+    python -m [category].[challenge]
 
 Example running the [base64 challenge](http://www.microcontest.com/contest.php?id=50):
 

@@ -10,7 +10,7 @@ def encrypt(key, message):
 
     for letter in message:
         if letter in alpha: # if the letter is actually a letter
-            #find the corresponding ciphertext letter in the alphabet
+            # find the corresponding ciphertext letter in the alphabet
             letter_index = (alpha.find(letter) + key) % len(alpha)
 
             result = result + alpha[letter_index]
@@ -27,7 +27,7 @@ def decrypt(key, message):
 
     for letter in message:
         if letter in alpha: # if the letter is actually a letter
-            #find the corresponding ciphertext letter in the alphabet
+            # find the corresponding ciphertext letter in the alphabet
             letter_index = (alpha.find(letter) - key) % len(alpha)
 
             result = result + alpha[letter_index]
