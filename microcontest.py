@@ -28,11 +28,13 @@ class Communicator:
 
         response.raise_for_status()
 
+        response.encoding = 'utf-8'
+
         if response.text.startswith('Erreur'):
             raise ValueError(response.text.replace('<br/>', ''))
 
         response_parser = ConfigParser()
-        response_parser.read_string('\n'.join(response.text.replace('<br/>', '\n').splitlines()[1:]))
+        response_parser.read_string('\n'.join(response.text.replace('\n', '').replace('<br/>', '\n').splitlines()[1:]))
 
         return {variable_name: response_parser[variable_name]['Valeur'] for variable_name in response_parser if variable_name != 'DEFAULT'}
 
