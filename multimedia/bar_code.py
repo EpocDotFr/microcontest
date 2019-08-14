@@ -1,3 +1,5 @@
+# pip install pyzbar pillow
+
 from microcontest import Communicator
 from pyzbar.pyzbar import decode
 from io import BytesIO

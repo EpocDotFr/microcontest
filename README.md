@@ -10,6 +10,8 @@ Python 3.
 
 Clone this repo, and then the usual `pip install -r requirements.txt`.
 
+Some solutions needs additional PyPI packages to be installed. See source code.
+
 ## Configuration
 
 Copy the `.env.example` file to `.env` and fill in the configuration parameters which are self-explanatory.

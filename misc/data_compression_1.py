@@ -1,6 +1,6 @@
-from microcontest import Communicator
+# rle_encode() and rle_decode() functions taken from https://stackabuse.com/run-length-encoding/ (was too lazy)
 
-# https://stackabuse.com/run-length-encoding/
+from microcontest import Communicator
 
 
 def rle_encode(data):

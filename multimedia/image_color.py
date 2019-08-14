@@ -1,3 +1,5 @@
+# pip install pillow
+
 from microcontest import Communicator
 from io import BytesIO
 from PIL import Image
