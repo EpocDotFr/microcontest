@@ -9,7 +9,7 @@ challenge_id = 10
 
 variables = mc.get_contest_variables(challenge_id)
 
-txt_clair = Vigenere(variables['clef']).decipher(variables['txt_crypte'])
+txt_clair = Vigenere(variables['clef']).decipher(variables['txt_crypte']) # FIXME Not working because of spaces
 
 print(txt_clair)
 

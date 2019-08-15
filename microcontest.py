@@ -1,4 +1,3 @@
-from configparser import ConfigParser
 from dotenv import load_dotenv
 from hashlib import sha1
 import requests
@@ -30,15 +29,29 @@ class Communicator:
 
         response = self._send_request(self.CONTEST_VARIABLES_URL.format(contest_id=contest_id), data)
 
-        response_parser = ConfigParser()
-        response_parser.read_string('\n'.join(response.text.replace('\n', '').replace('<br/>', '\n').splitlines()[1:]))
-
-        return {variable_name: response_parser[variable_name]['Valeur'] for variable_name in response_parser if variable_name != 'DEFAULT'}
+        return self._parse_contest_variables(response)
 
     def validate_contest(self, contest_id, data):
         response = self._send_request(self.CONTEST_VALIDATION_URL.format(contest_id=contest_id), data)
 
         return response.text.splitlines()[0].split(':', maxsplit=1)[1] == '1'
+
+    def _parse_contest_variables(self, response):
+        variables = {}
+
+        current_variable_name = None
+
+        for data in response.text.split('<br/>'):
+            if not data:
+                continue
+            elif data.startswith('[') and data.endswith(']'):
+                current_variable_name = data.strip('[]')
+            elif data.startswith('Valeur'):
+                variables[current_variable_name] = data.split('=', maxsplit=1)[1]
+
+                current_variable_name = None
+
+        return variables
 
     def _send_request(self, url, data):
         response = requests.post(url, data=data)
