@@ -1,5 +1,3 @@
-# A* implementation taken from https://www.redblobgames.com/pathfinding/a-star/implementation.html#python (was too lazy)
-
 from microcontest import Communicator
 
 mc = Communicator.create_from_env()
