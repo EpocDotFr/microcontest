@@ -11,7 +11,7 @@ challenge_id = 39
 
 variables = mc.get_contest_variables(challenge_id)
 
-image_raw = BytesIO(variables['img'].encode())
+image_raw = BytesIO(variables['img'].encode()) # FIXME Not working because of Communicator not able to extract binary data
 
 results = decode(Image.open(image_raw).convert('RGB'))
 
