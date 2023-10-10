@@ -2,6 +2,9 @@
 
 Source code of my solutions to the [µContest](http://www.microcontest.com/) challenges.
 
+> [!NOTE]
+> 10/10/2023: It looks like microcontest.com has closed.
+
 ## Prerequisites
 
 Python 3.
